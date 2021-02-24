@@ -12,6 +12,8 @@
 			<option value="">Select Convertion</option>
 			<option value="cedis-to-dollars">Cedis to Dollars</option>
 			<option value="dollars-to-cedis">Dollars to Cedis</option>
+			<option value="cedis-to-pounds">Cedis to Pound Sterling</option>
+			<option value="pounds-to-cedis">Pound Sterling to Cedis</option>
 		</select><br>
 
 		<input id="amount" type="number" placeholder="Enter Amount" required><br>
@@ -28,19 +30,28 @@
 		event.preventDefault()
 
 		var amount = document.getElementById('amount').value
-		var rate = 5.87
+		var rate1 = 5.87
+		var rate2 = 8.13
 
 		var conversion = document.getElementById('conversion').value
 
 		if (conversion == 'cedis-to-dollars') {
-			var exchangeAmount = (amount / rate).toFixed(2)
+			var exchangeAmount = (amount / rate1).toFixed(2)
 
 			document.getElementById('output').innerHTML = '$' + exchangeAmount
 
 		} else if (conversion == 'dollars-to-cedis') {
-			var exchangeAmount = (amount * rate).toFixed(2)
+			var exchangeAmount = (amount * rate1).toFixed(2)
 
 			document.getElementById('output').innerHTML = 'GH¢' + exchangeAmount
+		} else if (conversion == 'cedis-to-pounds') {
+			var exchangeAmount = (amount / rate2).toFixed(2)
+			
+			document.getElementById('output').innerHTML = '£' + exchangeAmount
+		}  else if (conversion == 'pounds-to-cedis') {
+			var exchangeAmount = (amount * rate2).toFixed(2)
+			
+			document.getElementById('output').innerHTML = '£' + exchangeAmount
 		}
 
 		
